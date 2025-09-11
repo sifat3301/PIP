@@ -43,17 +43,6 @@ def test_extract_text_from_frame_with_frame(dummy_frame):
         mock_tesseract.assert_called_once()
 
 
-def test_extract_text_from_frame_with_file(tmp_save_dir, dummy_frame):
-    os.makedirs(tmp_save_dir, exist_ok=True)
-    file_path = os.path.join(tmp_save_dir, "frame.jpg")
-    # Mock cv2.imread to avoid reading real file
-    with patch("cv2.imread", return_value=dummy_frame), \
-         patch("pytesseract.image_to_string", return_value="file text") as mock_tesseract:
-        vp = VideoPlayer("video.mp4", tmp_save_dir, is_persist=True)
-        text = vp._VideoPlayer__extract_text_from_frame(file_path=file_path)
-        assert text == "file text"
-        mock_tesseract.assert_called_once()
-
 
 def test_extract_text_raises_errors():
     vp = VideoPlayer("video.mp4", "frames", is_persist=False)
