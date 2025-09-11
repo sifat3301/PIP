@@ -5,7 +5,7 @@ import pytesseract
 
 
 class VideoPlayer:
-    def __init__(self, path: str, save_dir: str, interval: int = 10, **kwargs):
+    def __init__(self, path: str, save_dir: str = None, interval: int = 10, **kwargs):
         self.path = path
         self.cap = cv2.VideoCapture(path)
         self.save_dir = save_dir
@@ -80,13 +80,14 @@ class VideoPlayer:
         cv2.destroyAllWindows()
 
 
-video_path = "TextBasedExplainerVideo.mp4"
-video_player = VideoPlayer(
-    video_path,
-    save_dir="stored_frames",
-    interval=4,
-    is_persist=True,
-    interval_type="second",
-    max_duration=10
-)
-video_player.play()
+if __name__ == '__main__':
+    video_path = "TextBasedExplainerVideo.mp4"
+    video_player = VideoPlayer(
+        video_path,
+        save_dir="stored_frames",
+        interval=1,
+        is_persist=True,
+        interval_type="second",
+        max_duration=10
+    )
+    video_player.play()
