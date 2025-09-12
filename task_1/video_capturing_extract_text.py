@@ -7,7 +7,6 @@ import pytesseract
 class VideoPlayer:
     def __init__(self, path: str, save_dir: str = None, interval: int = 10, **kwargs):
         self.path = path
-        self.cap = cv2.VideoCapture(path)
         self.save_dir = save_dir
         self.interval_type = kwargs.get('interval_type', 'second')
         self.is_persist = kwargs.get('is_persist', False)
