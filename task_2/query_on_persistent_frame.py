@@ -2,10 +2,14 @@ import os
 import cv2
 import pytesseract
 
+pytesseract.pytesseract.tesseract_cmd = "/opt/homebrew/bin/tesseract"
+
 parent_dir = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
 base_frames_dir = os.path.join(parent_dir, "task_1")
 frames_dir = os.path.join(base_frames_dir, "stored_frames")
 
+# Ensure the frames directory exists
+os.makedirs(frames_dir, exist_ok=True)
 
 def extract_text_from_frame(frame_path=None):
     frame = cv2.imread(frame_path)
@@ -15,8 +19,7 @@ def extract_text_from_frame(frame_path=None):
     text = pytesseract.image_to_string(gray)
     return text
 
-for i in range(len(os.listdir(frames_dir))):
-    frame_file = os.listdir(frames_dir)[i]
+# Only loop if the folder has files
+for frame_file in os.listdir(frames_dir):
     frame_path = os.path.join(frames_dir, frame_file)
-
     print(extract_text_from_frame(frame_path=frame_path))
