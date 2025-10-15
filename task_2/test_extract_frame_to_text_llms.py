@@ -16,7 +16,7 @@ class TestFrameTextProcessor(unittest.TestCase):
     @patch("cv2.imread", return_value="fake_image")
     @patch("cv2.cvtColor", return_value="gray_image")
     @patch("pytesseract.image_to_string", return_value="hello")
-    def test_process_single_frame(self, mock_pytesseract, mock_cvtColor, mock_imread, mock_listdir):
+    def test_process_single_frame(self, _, __, ___, ____):
         # Mock llama._call on the instance
         self.processor.llama._call = MagicMock(return_value="definition of hello")
 
@@ -34,7 +34,7 @@ class TestFrameTextProcessor(unittest.TestCase):
     @patch("cv2.imread", return_value="fake_image")
     @patch("cv2.cvtColor", return_value="gray_image")
     @patch("pytesseract.image_to_string", return_value="world")
-    def test_process_all_frames(self, mock_pytesseract, mock_cvtColor, mock_imread, mock_listdir):
+    def test_process_all_frames(self, _, __, ___, ____):
         # Mock llama._call on the instance
         self.processor.llama._call = MagicMock(return_value="definition of world")
 

@@ -2,7 +2,6 @@ import os
 import cv2
 import pytesseract
 
-# pytesseract.pytesseract.tesseract_cmd = "/opt/homebrew/bin/tesseract"
 import pandas as pd
 from llama_service import LLaMAWrapper
 

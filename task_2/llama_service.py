@@ -1,6 +1,5 @@
 import json
 import requests
-from typing import Optional, List
 
 
 class LLaMAWrapper:
@@ -11,7 +10,7 @@ class LLaMAWrapper:
     def _llm_type(self) -> str:
         return "llama"
 
-    def _call(self, prompt: str, stop: Optional[List[str]] = None) -> str:
+    def _call(self, prompt: str) -> str:
         response = requests.post(
             self.endpoint,
             json={"model": "llama2", "prompt": prompt, "max_tokens": 512},
