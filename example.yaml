@@ -1,0 +1,31 @@
+name: N A Sifat
+age: 30
+#list of info
+skills:
+  - Python
+  - YAML
+location: Dhaka
+country: Bangladesh
+security-level: user
+
+# nested info
+person:
+  name: Alice
+  details:
+    age: 25
+    city: London
+
+#multi-line string
+literal: | 
+  This is multi-line string
+folded: > 
+  This is another multi-line string.
+
+# anchoring and later use
+defaults: &default_settings
+  retries: 3
+  timeout: 30
+
+server1:
+  host: example.com
+  retries: *default_settings

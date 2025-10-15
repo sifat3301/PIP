@@ -3,7 +3,7 @@ import cv2
 import pytesseract
 import pandas as pd
 import argparse
-from .llama_service import LLaMAWrapper
+from llama_service import LLaMAWrapper
 
 pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
 
